@@ -1,0 +1,33 @@
+# ===========================================================
+# RAG data ingestion project: requirements
+# Python 3.11 or newer (use 3.11 or 3.12)
+# Install:  pip install -r requirements.txt
+# ===========================================================
+
+# --- PDF files (.pdf): loaders/pdf_loader.py
+pdfplumber>=0.10
+
+# --- HTML files (.html, .htm): loaders/html_loader.py
+beautifulsoup4>=4.12
+
+# --- Token counting for chunk sizes: chunking/tokens.py
+# Optional. Without it, tokens are estimated as ~1.3 per word.
+# Needs internet the first time to download its vocabulary.
+tiktoken>=0.7
+
+# --- Markdown (.md) and TXT (.txt) files
+# Nothing to install. Those loaders, the cleaning code, the chunking
+# code and the config files use only Python's standard library.
+
+# --- Not needed for ingestion: no API keys, no GPU, no database.
+
+# --- Embeddings + vector store: embed.py, embeddings/
+# Needs GEMINI_API_KEY in a .env file in the repo root (see embeddings/README.md).
+google-genai>=1.0
+chromadb>=1.0
+
+# Interactive HTTP API and cancellable outbound requests
+fastapi>=0.115,<1
+uvicorn>=0.30,<1
+python-dotenv>=1.0,<2
+httpx>=0.27,<1

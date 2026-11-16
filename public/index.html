@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RAG Document Assistant</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="stream.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+  <main class="app">
+    <header>
+      <h1>RAG Document Assistant</h1>
+      <p>Ask questions about the documents in our knowledge base.</p>
+    </header>
+
+    <section
+      id="chat"
+      role="log"
+      aria-label="Conversation history"
+      aria-live="polite"
+    >
+      <div class="welcome" id="welcome">
+        <h2>How can I help you?</h2>
+        <p>Type a question below to get started.</p>
+      </div>
+    </section>
+
+    <div class="composer">
+      <div id="status" role="status" aria-live="polite"></div>
+
+      <form id="question-form">
+        <textarea
+          id="question"
+          placeholder="Ask a question about your documents..."
+          aria-label="Your question"
+          maxlength="4000"
+          required
+        ></textarea>
+
+        <button id="submit-button" type="submit" disabled>
+          Submit
+        </button>
+      </form>
+
+      <p class="hint">
+        Enter to submit · Shift + Enter for a new line
+      </p>
+    </div>
+  </main>
+</body>
+</html>
